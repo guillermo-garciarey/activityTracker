@@ -31,13 +31,44 @@ toggleItem.addEventListener("click", () => {
 });
 
 // Toggle Side Bar
-
 const toggleSidebarBtn = document.getElementById("toggle-sidebar");
 const sidebar = document.querySelector(".sidebar");
 
 toggleSidebarBtn.addEventListener("click", () => {
 	sidebar.classList.toggle("open-sidebar");
 });
+
+// 1. Close sidebar on outside click
+document.addEventListener("click", (e) => {
+	// If sidebar is open and click is outside both sidebar and toggle button
+	if (
+		sidebar.classList.contains("open-sidebar") &&
+		!sidebar.contains(e.target) &&
+		!toggleSidebarBtn.contains(e.target)
+	) {
+		sidebar.classList.remove("open-sidebar");
+	}
+});
+
+// 2. Swipe gesture to close (right-to-left swipe)
+let touchStartX = 0;
+let touchEndX = 0;
+
+sidebar.addEventListener("touchstart", (e) => {
+	touchStartX = e.changedTouches[0].screenX;
+});
+
+sidebar.addEventListener("touchend", (e) => {
+	touchEndX = e.changedTouches[0].screenX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const swipeDistance = touchStartX - touchEndX;
+	if (swipeDistance > 50) {
+		sidebar.classList.remove("open-sidebar");
+	}
+}
 
 // Top Nav Menu (Visible & Invisible)
 
