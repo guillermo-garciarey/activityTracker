@@ -283,7 +283,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
-	justify-content: space-around;
+	justify-content: center;
 	background-color: var(--background);
 	transition: transform 0.3s ease;
 	padding-left: 1rem;

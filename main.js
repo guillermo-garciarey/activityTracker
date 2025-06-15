@@ -65,7 +65,7 @@ sidebar.addEventListener("touchend", (e) => {
 
 function handleSwipe() {
 	const swipeDistance = touchStartX - touchEndX;
-	if (swipeDistance > 50) {
+	if (swipeDistance < -50) {
 		sidebar.classList.remove("open-sidebar");
 	}
 }
