@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<meta
+			http-equiv="X-UA-Compatible"
+			content="ie=edge"
+		/>
+		<title>My Web App</title>
+		<link
+			rel="stylesheet"
+			href="style.css"
+		/>
+		<script
+			src="https://kit.fontawesome.com/c7c54647d2.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<!-- Side Bar -->
+		<div class="sidebar">
+			<div class="sidebar-title">
+				<h2 class="accent">Menu</h2>
+			</div>
+			<div class="sidebar-nav">
+				<div class="sidebar-nav-main">
+					<ul>
+						<li>
+							<a href="">Home</a>
+						</li>
+						<li>
+							<a href="">Progress</a>
+						</li>
+						<li>
+							<a href="">Library</a>
+						</li>
+						<li>
+							<a href="">Blocks</a>
+						</li>
+					</ul>
+				</div>
+				<div class="sidebar-nav-secondary">
+					<ul>
+						<li>
+							<a href=""><small>Buy me a coffee</small></a>
+						</li>
+						<li id="toggle-theme">
+							<small>Light Mode</small>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="sidebar-profile"></div>
+		</div>
+
+		<div class="container">
+			<!-- Header -->
+			<div class="top-nav invisible">
+				<p>Home</p>
+			</div>
+
+			<h2 class="accent header">Home</h2>
+
+			<!-- Main Content -->
+
+			<div class="activity-card-container">
+				<div class="activity-card">
+					<div class="activity-card-image">
+						<span>B</span>
+					</div>
+					<div class="activity-card-info">
+						<p>Bulgarian Split Squats</p>
+						<div class="activity-card-info-metrics">
+							<small>Kilograms</small>
+							<small>Repetitions</small>
+						</div>
+					</div>
+					<div class="activity-card-icon">
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<div class="activity-card">
+					<div class="activity-card-image">
+						<span>B</span>
+					</div>
+					<div class="activity-card-info">
+						<p>Bench Press</p>
+						<div class="activity-card-info-metrics">
+							<small>Kilograms</small>
+							<small>Repetitions</small>
+						</div>
+					</div>
+					<div class="activity-card-icon">
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<div class="activity-card">
+					<div class="activity-card-image">
+						<span>C</span>
+					</div>
+					<div class="activity-card-info">
+						<p>Chin Ups</p>
+						<div class="activity-card-info-metrics">
+							<small>Repetitions</small>
+						</div>
+					</div>
+					<div class="activity-card-icon">
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<div class="activity-card">
+					<div class="activity-card-image">
+						<span>P</span>
+					</div>
+					<div class="activity-card-info">
+						<p>Planks</p>
+						<div class="activity-card-info-metrics">
+							<small>Seconds</small>
+						</div>
+					</div>
+					<div class="activity-card-icon">
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Action -->
+
+		<div class="bottom-action">
+			<!-- <i class="fa-solid fa-plus"></i> -->
+			<p class="action">Create Activity</p>
+		</div>
+
+		<!-- Bottom Nav Bar -->
+		<div class="bottom-nav-bar">
+			<i
+				id="toggle-sidebar"
+				class="fa-solid fa-chevron-left"
+			></i>
+		</div>
+		<script src="main.js"></script>
+	</body>
+</html>
