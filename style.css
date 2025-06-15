@@ -277,7 +277,7 @@ a {
 	top: 0;
 	right: 0;
 	height: calc(100vh - 3rem);
-	width: 80vw;
+	width: 90vw;
 	transform: translateX(100%);
 	border-left: 1px solid var(--border);
 	display: flex;
@@ -370,10 +370,10 @@ a {
 	height: calc(100vh - 7rem);
 	margin-bottom: 6rem;
 	width: 100%;
-	padding-block: 1rem;
 	overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
+	display: flex;
+	flex-direction: column;
 }
 
 .container {
@@ -488,6 +488,7 @@ a {
 	overflow: hidden;
 	align-items: center;
 	justify-content: center;
+	flex: 1;
 }
 
 .card-gallery {
@@ -501,10 +502,16 @@ a {
 
 .alt-card {
 	aspect-ratio: 4/5;
-	min-width: 50%;
+	min-width: 85%;
 	flex: 1;
-	padding-bottom: 1rem;
+	padding-bottom: 1.5rem;
 	scroll-snap-align: center;
+}
+
+@media screen and (max-height: 667px) {
+	.alt-card {
+		min-width: 65%;
+	}
 }
 
 .alt-card-image {
