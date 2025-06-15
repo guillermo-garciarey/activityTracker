@@ -70,6 +70,29 @@ function handleSwipe() {
 	}
 }
 
+const navLinks = document.querySelectorAll(".sidebar-nav-main a");
+const panels = document.querySelectorAll(".panel");
+
+navLinks.forEach((link) => {
+	link.addEventListener("click", (e) => {
+		e.preventDefault();
+
+		const targetId = link.textContent.trim().replace(/\s+/g, "");
+		const targetPanel = document.getElementById(targetId);
+
+		// Deactivate all panels
+		panels.forEach((panel) => panel.classList.remove("active"));
+
+		// Activate matching panel
+		if (targetPanel) {
+			targetPanel.classList.add("active");
+		}
+
+		// Close sidebar
+		sidebar.classList.remove("open-sidebar");
+	});
+});
+
 // Top Nav Menu (Visible & Invisible)
 
 const header = document.querySelector(".header");
