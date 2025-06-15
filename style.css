@@ -63,6 +63,20 @@
 	--shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
 		0 8px 10px -1px hsl(0 0% 0% / 0.1);
 	--shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+	--gradient-1a: #a2c3cf;
+	--gradient-1b: #43525a;
+
+	--gradient-2a: #bfd5c6;
+	--gradient-2b: #3c624a;
+
+	--gradient-3a: #f3d689;
+	--gradient-3b: #f1a100;
+
+	--gradient-4a: #e9c9c9;
+	--gradient-4b: #7b4e4e;
+
+	--gradient-5a: #d6c0dd;
+	--gradient-5b: #5e4962;
 }
 
 .dark {
@@ -523,9 +537,9 @@ a {
 	width: 100%;
 	height: 100%;
 	flex: 1;
+	border-radius: 4px;
 	margin-bottom: 1rem;
 	scroll-snap-align: center;
-	background-color: var(--popover);
 	border-right: solid 1px var(--background);
 	border-left: solid 1px var(--background);
 }

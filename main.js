@@ -90,3 +90,18 @@ const observer = new IntersectionObserver(
 );
 
 observer.observe(header);
+
+// Activity Card Gradient Generator
+
+const gradients = [
+	["--gradient-1a", "--gradient-1b"],
+	["--gradient-2a", "--gradient-2b"],
+	["--gradient-3a", "--gradient-3b"],
+	["--gradient-4a", "--gradient-4b"],
+	["--gradient-5a", "--gradient-5b"],
+];
+
+document.querySelectorAll(".alt-card-image").forEach((el, i) => {
+	const [startVar, endVar] = gradients[i % gradients.length];
+	el.style.background = `linear-gradient(180deg, var(${startVar}), var(${endVar}))`;
+});
