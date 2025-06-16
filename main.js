@@ -95,24 +95,33 @@ navLinks.forEach((link) => {
 
 // Top Nav Menu (Visible & Invisible)
 
-const header = document.querySelector(".header");
-const topNav = document.querySelector(".top-nav");
+const headers = document.querySelectorAll(".header");
+const topNavs = document.querySelectorAll(".top-nav");
 
-const observer = new IntersectionObserver(
-	([entry]) => {
-		if (entry.isIntersecting) {
-			topNav.classList.add("invisible");
-		} else {
-			topNav.classList.remove("invisible");
-		}
-	},
-	{
-		root: null, // viewport
-		threshold: 0, // when even 1px is visible
-	}
-);
+// Check that both NodeLists are the same length
+if (headers.length === topNavs.length) {
+	headers.forEach((header, index) => {
+		const nav = topNavs[index];
 
-observer.observe(header);
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					nav.classList.add("invisible");
+				} else {
+					nav.classList.remove("invisible");
+				}
+			},
+			{
+				root: null,
+				threshold: 0,
+			}
+		);
+
+		observer.observe(header);
+	});
+} else {
+	console.warn("Mismatched number of .header and .top-nav elements.");
+}
 
 // Activity Card Gradient Generator
 
