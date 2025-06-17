@@ -77,6 +77,21 @@
 
 	--gradient-5a: #d6c0dd;
 	--gradient-5b: #5e4962;
+
+	--gradient-block-1a: #5c7a86;
+	--gradient-block-1b: #2e3e45;
+
+	--gradient-block-2a: #4d6656;
+	--gradient-block-2b: #223429;
+
+	--gradient-block-3a: #a67c2d;
+	--gradient-block-3b: #6b4e12;
+
+	--gradient-block-4a: #6e4f4f;
+	--gradient-block-4b: #3a2a2a;
+
+	--gradient-block-5a: #5a4862;
+	--gradient-block-5b: #302637;
 }
 
 .dark {
@@ -429,75 +444,6 @@ a {
 	font-weight: 400;
 }
 
-/* Activity Card */
-
-.activity-card-container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.activity-card {
-	background: var(--card);
-	border-radius: 4px;
-	display: flex;
-	flex-grow: 1;
-	margin-bottom: 0.5rem;
-	gap: 1rem;
-	border: 1px solid var(--border);
-}
-
-.activity-card > * {
-	justify-content: center;
-	align-items: center;
-}
-
-.activity-card-image {
-	display: flex;
-	align-items: center;
-	aspect-ratio: 1/1;
-	height: 78px;
-	background: var(--border);
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-
-.activity-card-image > span {
-	color: var(--accent-foreground);
-	font-weight: 400;
-}
-
-.activity-card-info {
-	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-}
-
-.activity-card-info p {
-	font-size: var(--step--0);
-	color: var(--card-foreground);
-}
-
-.activity-card-info-metrics {
-	font-size: var(--step--1);
-	display: flex;
-	gap: 0.5rem;
-}
-
-.activity-card-icon {
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-	justify-content: end;
-	padding-right: 1rem;
-}
-
-.activity-card > small {
-	padding-left: 1rem;
-}
-
 /* Activity Card Alt */
 
 .alt-activity-card-container {
@@ -587,7 +533,8 @@ a {
 	flex: 1;
 	scroll-snap-align: center;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
+	padding-bottom: 1.5rem;
 }
 
 @media screen and (max-height: 667px) {
@@ -606,8 +553,9 @@ a {
 	height: 100%;
 	border-radius: 4px;
 	scroll-snap-align: center;
-	border-right: solid 1px var(--background);
-	border-left: solid 1px var(--background);
+	border: solid 1px var(--background);
+	margin-bottom: 1rem;
+	background-color: var(--popover);
 }
 
 .block-card-info {
@@ -631,6 +579,11 @@ a {
 
 .block-activity {
 	padding-inline: 1rem;
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	border-bottom: solid 1px var(--background);
 }
 
 /* Panel  */
