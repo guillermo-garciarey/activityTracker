@@ -605,7 +605,6 @@ a {
 }
 
 .block-activity small {
-	font-size: var(--step--2);
 	color: var(--popover-foreground);
 }
 
