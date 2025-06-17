@@ -527,6 +527,24 @@ a {
 
 /* Block Cards */
 
+.block-card-container {
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+}
+
+.block-card-gallery {
+	overflow-x: scroll;
+	display: flex;
+	width: 100%;
+	scroll-snap-type: x;
+	scroll-behavior: smooth;
+	align-items: start;
+}
+
 .block-card {
 	aspect-ratio: 4/5;
 	min-width: 85%;
@@ -584,6 +602,9 @@ a {
 	align-items: center;
 	justify-content: center;
 	border-bottom: solid 1px var(--background);
+}
+
+.block-activity small {
 	font-size: var(--step--2);
 	color: var(--popover-foreground);
 }
