@@ -551,7 +551,7 @@ a {
 	flex: 1;
 	scroll-snap-align: center;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	padding-bottom: 1.5rem;
 }
 
@@ -572,7 +572,7 @@ a {
 	border-radius: 4px;
 	scroll-snap-align: center;
 	border: solid 1px var(--background);
-	margin-bottom: 1rem;
+	margin-top: 1rem;
 	background-color: var(--popover);
 }
 
