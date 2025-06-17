@@ -607,3 +607,42 @@ a {
 	pointer-events: auto;
 	z-index: 1;
 }
+
+/* Boxes Testing */
+
+.grid-card-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: start;
+}
+
+.grid-card {
+	width: 50vw;
+	margin-bottom: 1rem;
+	box-sizing: border-box;
+}
+
+.grid-card-image {
+	width: 100%;
+	height: 100%;
+	aspect-ratio: 1/1;
+	border: 1px solid var(--background);
+}
+
+.grid-card-info {
+	display: flex;
+	flex-direction: column;
+	padding-left: 1rem;
+	justify-content: space-around;
+}
+
+.grid-card-info > p {
+	font-size: var(--step--0);
+	color: var(--card-foreground);
+}
+
+.grid-card-info-metrics {
+	display: flex;
+	flex-direction: column;
+	font-size: var(--step--1);
+}

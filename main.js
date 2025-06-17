@@ -138,6 +138,11 @@ document.querySelectorAll(".alt-card-image").forEach((el, i) => {
 	el.style.background = `linear-gradient(180deg, var(${startVar}), var(${endVar}))`;
 });
 
+document.querySelectorAll(".grid-card-image").forEach((el, i) => {
+	const [startVar, endVar] = gradients[i % gradients.length];
+	el.style.background = `linear-gradient(180deg, var(${startVar}), var(${endVar}))`;
+});
+
 const gradientsblocks = [
 	["--gradient-block-1a", "--gradient-block-1b"],
 	["--gradient-block-2a", "--gradient-block-2b"],
