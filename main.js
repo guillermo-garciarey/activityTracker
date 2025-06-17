@@ -146,7 +146,6 @@ document.querySelectorAll(".grid-card-image").forEach((el, i) => {
 const gradientsblocks = [
 	["--gradient-block-1a", "--gradient-block-1b"],
 	["--gradient-block-2a", "--gradient-block-2b"],
-	["--gradient-block-3a", "--gradient-block-3b"],
 	["--gradient-block-4a", "--gradient-block-4b"],
 	["--gradient-block-5a", "--gradient-block-5b"],
 ];
