@@ -617,8 +617,11 @@ a {
 }
 
 .grid-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 	width: 50vw;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 	box-sizing: border-box;
 }
 
