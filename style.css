@@ -718,6 +718,7 @@ a {
 
 .popover li {
 	display: flex;
+	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-around;
 }
@@ -727,13 +728,14 @@ a {
 	display: block;
 	padding: 0.75rem 1rem;
 	text-decoration: none;
-	color: var(--popover-foreground);
+	color: var(--muted-foreground);
 }
 
 .popover li i {
-	margin-right: 1rem;
-	font-size: var(--step--1);
+	margin-inline: 1rem;
+	font-size: var(--step--2);
 	width: 10px;
+	color: var(--muted-foreground);
 }
 
 .popover li:last-child {
