@@ -687,11 +687,9 @@ a {
 
 .popover {
 	position: absolute;
-	background: white;
-	border: 1px solid #ccc;
-	border-radius: 6px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	padding: 0.5rem 0;
+	background: var(--popover);
+	border: 1px solid var(--border);
+	border-radius: 4px;
 	width: 160px;
 	z-index: 1000;
 	opacity: 0;
@@ -711,16 +709,20 @@ a {
 }
 
 .popover ul {
+	display: flex;
+	flex-direction: column;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
 .popover li a {
+	flex: 1;
 	display: block;
 	padding: 0.6rem 1rem;
 	text-decoration: none;
-	color: black;
+	color: var(--popover-foreground);
+	border-bottom: 1px solid var(--border);
 }
 
 .popover li a:hover {
