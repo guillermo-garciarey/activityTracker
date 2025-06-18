@@ -605,7 +605,7 @@ a {
 }
 
 .block-activity small {
-	color: var(--popover-foreground);
+	color: var(--destructive-foreground);	
 }
 
 /* Panel  */
