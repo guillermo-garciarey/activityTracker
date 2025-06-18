@@ -170,12 +170,12 @@ document.addEventListener("click", (e) => {
 		const vw = window.innerWidth;
 		const vh = window.innerHeight;
 
-		const menuWidth = 140;
+		const menuWidth = 160;
 		const menuHeight = 120;
 		const padding = 10;
 
 		const offsetX = 24;
-		const offsetY = 62;
+		const offsetY = 72;
 
 		let left = rect.right + window.scrollX - menuWidth - offsetX;
 		const isBottom = rect.top + rect.height / 2 > vh * 0.5;

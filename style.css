@@ -690,7 +690,7 @@ a {
 	background: var(--popover);
 	border: 1px solid var(--border);
 	border-radius: 4px;
-	width: 160px;
+	width: 180px;
 	z-index: 1000;
 	opacity: 0;
 	transform: translateY(10px);
@@ -716,17 +716,32 @@ a {
 	padding: 0;
 }
 
+.popover li {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
 .popover li a {
 	flex: 1;
 	display: block;
-	padding: 0.6rem 1rem;
+	padding: 0.75rem 1rem;
 	text-decoration: none;
 	color: var(--popover-foreground);
-	border-bottom: 1px solid var(--border);
+}
+
+.popover li i {
+	margin-right: 1rem;
+	font-size: var(--step--1);
+	width: 10px;
+}
+
+.popover li:last-child {
+	border-top: 1px solid var(--background);
 }
 
 .popover li a:hover {
-	background-color: #f3f3f3;
+	background-color: var(--background);
 }
 
 .hidden {
