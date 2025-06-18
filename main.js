@@ -154,3 +154,80 @@ document.querySelectorAll(".block-card-image").forEach((el, i) => {
 	const [startVar, endVar] = gradientsblocks[i % gradientsblocks.length];
 	el.style.background = `linear-gradient(180deg, var(${startVar}), var(${endVar}))`;
 });
+
+// Popover
+
+const menu = document.getElementById("popoverMenu");
+
+document.addEventListener("click", (e) => {
+	if (e.target.classList.contains("fa-ellipsis")) {
+		e.stopPropagation();
+
+		const icon = e.target;
+		const scrollContainer = icon.closest(".container-full"); // 🎯 only lock the nearest scrollable parent
+
+		const rect = icon.getBoundingClientRect();
+		const vw = window.innerWidth;
+		const vh = window.innerHeight;
+
+		const menuWidth = 140;
+		const menuHeight = 120;
+		const padding = 10;
+
+		const offsetX = 24;
+		const offsetY = 62;
+
+		let left = rect.right + window.scrollX - menuWidth - offsetX;
+		const isBottom = rect.top + rect.height / 2 > vh * 0.5;
+		let top;
+
+		if (isBottom) {
+			top = rect.top + window.scrollY - menuHeight - offsetY;
+		} else {
+			top = rect.bottom + window.scrollY + 8;
+		}
+
+		left = Math.max(
+			padding,
+			Math.min(left, vw - menuWidth - padding + window.scrollX)
+		);
+		top = Math.max(
+			padding,
+			Math.min(top, document.body.scrollHeight - menuHeight - padding)
+		);
+
+		menu.style.left = `${left}px`;
+		menu.style.top = `${top}px`;
+
+		menu.classList.remove("hidden");
+		void menu.offsetWidth;
+		menu.classList.add("show");
+
+		// Lock scrolling only on the closest container
+		if (scrollContainer) {
+			scrollContainer.classList.add("no-scroll");
+			// Save the locked container for later removal
+			menu.dataset.lockedContainer = scrollContainer.dataset.containerId =
+				Math.random();
+		}
+	} else {
+		menu.classList.remove("show");
+
+		// Find previously locked container and unlock it
+		const lockedId = menu.dataset.lockedContainer;
+		if (lockedId) {
+			const previouslyLocked = document.querySelector(
+				`[data-container-id="${lockedId}"]`
+			);
+			if (previouslyLocked) {
+				previouslyLocked.classList.remove("no-scroll");
+				previouslyLocked.removeAttribute("data-container-id");
+			}
+			delete menu.dataset.lockedContainer;
+		}
+
+		setTimeout(() => {
+			menu.classList.add("hidden");
+		}, 200);
+	}
+});
