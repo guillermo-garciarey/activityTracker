@@ -155,79 +155,98 @@ document.querySelectorAll(".block-card-image").forEach((el, i) => {
 	el.style.background = `linear-gradient(180deg, var(${startVar}), var(${endVar}))`;
 });
 
-// Popover
-
-const menu = document.getElementById("popoverMenu");
+// Grid Card Overlay
 
 document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("fa-ellipsis")) {
+		const card = e.target.closest(".grid-card");
+		const overlay = card.querySelector(".card-overlay");
+
+		document.querySelectorAll(".card-overlay").forEach((o) => {
+			if (o !== overlay) o.classList.remove("show");
+		});
+
+		overlay.classList.toggle("show");
 		e.stopPropagation();
-
-		const icon = e.target;
-		const scrollContainer = icon.closest(".container-full"); // 🎯 only lock the nearest scrollable parent
-
-		const rect = icon.getBoundingClientRect();
-		const vw = window.innerWidth;
-		const vh = window.innerHeight;
-
-		const menuWidth = 160;
-		const menuHeight = 120;
-		const padding = 10;
-
-		const offsetX = 24;
-		const offsetY = 72;
-
-		let left = rect.right + window.scrollX - menuWidth - offsetX;
-		const isBottom = rect.top + rect.height / 2 > vh * 0.5;
-		let top;
-
-		if (isBottom) {
-			top = rect.top + window.scrollY - menuHeight - offsetY;
-		} else {
-			top = rect.bottom + window.scrollY + 8;
-		}
-
-		left = Math.max(
-			padding,
-			Math.min(left, vw - menuWidth - padding + window.scrollX)
-		);
-		top = Math.max(
-			padding,
-			Math.min(top, document.body.scrollHeight - menuHeight - padding)
-		);
-
-		menu.style.left = `${left}px`;
-		menu.style.top = `${top}px`;
-
-		menu.classList.remove("hidden");
-		void menu.offsetWidth;
-		menu.classList.add("show");
-
-		// Lock scrolling only on the closest container
-		if (scrollContainer) {
-			scrollContainer.classList.add("no-scroll");
-			// Save the locked container for later removal
-			menu.dataset.lockedContainer = scrollContainer.dataset.containerId =
-				Math.random();
-		}
 	} else {
-		menu.classList.remove("show");
-
-		// Find previously locked container and unlock it
-		const lockedId = menu.dataset.lockedContainer;
-		if (lockedId) {
-			const previouslyLocked = document.querySelector(
-				`[data-container-id="${lockedId}"]`
-			);
-			if (previouslyLocked) {
-				previouslyLocked.classList.remove("no-scroll");
-				previouslyLocked.removeAttribute("data-container-id");
-			}
-			delete menu.dataset.lockedContainer;
-		}
-
-		setTimeout(() => {
-			menu.classList.add("hidden");
-		}, 200);
+		// Click outside closes all overlays
+		document
+			.querySelectorAll(".card-overlay")
+			.forEach((o) => o.classList.remove("show"));
 	}
 });
+
+// Popover
+
+// const menu = document.getElementById("popoverMenu");
+
+// document.addEventListener("click", (e) => {
+// 	if (e.target.classList.contains("fa-ellipsis")) {
+// 		e.stopPropagation();
+
+// 		const icon = e.target;
+// 		const scrollContainer = icon.closest(".container-full");
+
+// 		const rect = icon.getBoundingClientRect();
+// 		const vw = window.innerWidth;
+// 		const vh = window.innerHeight;
+
+// 		const menuWidth = 160;
+// 		const menuHeight = 120;
+// 		const padding = 10;
+
+// 		const offsetX = 24;
+// 		const offsetY = 72;
+
+// 		let left = rect.right + window.scrollX - menuWidth - offsetX;
+// 		const isBottom = rect.top + rect.height / 2 > vh * 0.5;
+// 		let top;
+
+// 		if (isBottom) {
+// 			top = rect.top + window.scrollY - menuHeight - offsetY;
+// 		} else {
+// 			top = rect.bottom + window.scrollY + 8;
+// 		}
+
+// 		left = Math.max(
+// 			padding,
+// 			Math.min(left, vw - menuWidth - padding + window.scrollX)
+// 		);
+// 		top = Math.max(
+// 			padding,
+// 			Math.min(top, document.body.scrollHeight - menuHeight - padding)
+// 		);
+
+// 		menu.style.left = `${left}px`;
+// 		menu.style.top = `${top}px`;
+
+// 		menu.classList.remove("hidden");
+// 		void menu.offsetWidth;
+// 		menu.classList.add("show");
+
+// 		if (scrollContainer) {
+// 			scrollContainer.classList.add("no-scroll");
+
+// 			menu.dataset.lockedContainer = scrollContainer.dataset.containerId =
+// 				Math.random();
+// 		}
+// 	} else {
+// 		menu.classList.remove("show");
+
+// 		const lockedId = menu.dataset.lockedContainer;
+// 		if (lockedId) {
+// 			const previouslyLocked = document.querySelector(
+// 				`[data-container-id="${lockedId}"]`
+// 			);
+// 			if (previouslyLocked) {
+// 				previouslyLocked.classList.remove("no-scroll");
+// 				previouslyLocked.removeAttribute("data-container-id");
+// 			}
+// 			delete menu.dataset.lockedContainer;
+// 		}
+
+// 		setTimeout(() => {
+// 			menu.classList.add("hidden");
+// 		}, 200);
+// 	}
+// });
