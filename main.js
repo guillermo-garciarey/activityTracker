@@ -178,149 +178,87 @@ document.addEventListener("click", (e) => {
 
 // Chart
 
-const ctx = document.getElementById("myChart").getContext("2d");
-
-// 🟡 FAKE DATA
-const labels = [
-	"Mon",
-	"Tue",
-	"Wed",
-	"Thu",
-	"Fri",
-	"Sat",
-	"Sun",
-	"Mon",
-	"Tue",
-	"Wed",
-	"Thu",
-	"Fri",
-	"Sat",
-	"Sun",
-];
-const data = {
-	labels: labels,
-	datasets: [
+const options = {
+	chart: {
+		type: "line",
+		height: 300,
+		toolbar: { show: false },
+		fontFamily: "Inter, sans-serif",
+	},
+	series: [
 		{
-			label: "Weight Lifted (kg)",
+			name: "Weight Lifted (kg)",
 			data: [100, 105, 110, 108, 112, 115, 118, 121, 120, 120, 125, 90],
-			borderColor: "rgb(195, 116, 4)",
-			backgroundColor: "rgba(159, 138, 52, 0.2)",
-			tension: 0.5,
-			fill: true,
-			pointRadius: 3,
-			pointHoverRadius: 4,
 		},
 	],
-};
-
-// 🧠 Pull font info from CSS
-const bodyStyles = getComputedStyle(document.body);
-const bodyFontFamily = bodyStyles.fontFamily;
-const chartFontSize =
-	parseFloat(bodyStyles.getPropertyValue("--chart-font-size")) || 14;
-
-// 🟢 CONFIG
-const config = {
-	type: "line",
-	data: data,
-	options: {
-		layout: {
-			padding: 0,
-		},
-		responsive: true,
-		plugins: {
-			title: {
-				display: true,
-				text: "Bench Press - Weekly Progress",
-				color: "#fff",
-				font: {
-					family: bodyFontFamily,
-					size: chartFontSize + 2, // slightly larger than labels
-					weight: "bold",
-				},
-			},
-			legend: {
-				display: true,
-				labels: {
-					color: "#fff",
-					usePointStyle: true,
-					pointStyle: "line",
-					boxWidth: 40,
-					boxHeight: 2,
-					font: {
-						family: bodyFontFamily,
-						size: chartFontSize,
-					},
-				},
-			},
-			tooltip: {
-				enabled: true,
-				titleFont: {
-					family: bodyFontFamily,
-					size: chartFontSize,
-				},
-				bodyFont: {
-					family: bodyFontFamily,
-					size: chartFontSize,
-				},
-			},
-		},
-		interaction: {
-			intersect: false,
-			mode: "index",
-		},
-		scales: {
-			x: {
-				title: {
-					display: false,
-					text: "Day",
-					color: "#555",
-					font: {
-						family: bodyFontFamily,
-						size: chartFontSize,
-					},
-				},
-				grid: {
-					display: false,
-					color: "rgba(0,0,0,0.1)",
-				},
-				ticks: {
-					display: false,
-					color: "#555",
-					font: {
-						family: bodyFontFamily,
-						size: chartFontSize,
-					},
-				},
-			},
-			y: {
-				title: {
-					display: false,
-					text: "Kilograms",
-					color: "#555",
-					font: {
-						family: bodyFontFamily,
-						size: chartFontSize,
-					},
-				},
-				grid: {
-					display: false,
-					color: "rgba(0,0,0,0.1)",
-				},
-				ticks: {
-					display: false,
-					color: "#555",
-					font: {
-						family: bodyFontFamily,
-						size: chartFontSize,
-					},
-				},
-				suggestedMin: 50,
-				suggestedMax: 130,
+	xaxis: {
+		categories: [
+			"Mon",
+			"Tue",
+			"Wed",
+			"Thu",
+			"Fri",
+			"Sat",
+			"Sun",
+			"Mon",
+			"Tue",
+			"Wed",
+			"Thu",
+			"Fri",
+		],
+		labels: {
+			style: {
+				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+				colors: "#666",
 			},
 		},
 	},
+	yaxis: {
+		min: 50,
+		max: 130,
+		labels: {
+			style: {
+				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+				colors: "#666",
+			},
+		},
+	},
+	stroke: {
+		curve: "smooth",
+		width: 2,
+	},
+	fill: {
+		type: "gradient",
+		gradient: {
+			shadeIntensity: 1,
+			opacityFrom: 0.3,
+			opacityTo: 0.05,
+			stops: [0, 90, 100],
+		},
+	},
+	colors: ["#c37404"],
+	markers: {
+		size: 4,
+	},
+	legend: {
+		show: true,
+		fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+		fontFamily: "Inter, sans-serif",
+		labels: {
+			colors: "#444",
+		},
+		markers: {
+			width: 20,
+			height: 2,
+			strokeWidth: 0,
+			fillColors: ["#c37404"],
+			radius: 0,
+		},
+	},
+	tooltip: {
+		theme: "light",
+	},
 };
 
-// 🔵 CREATE CHART
-new Chart(ctx, config);
+const chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
