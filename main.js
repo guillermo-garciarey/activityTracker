@@ -179,11 +179,19 @@ document.addEventListener("click", (e) => {
 // Chart
 
 const options = {
+	grid: {
+		padding: {
+			left: 0,
+			right: 0,
+		},
+	},
 	chart: {
 		type: "line",
 		height: 300,
 		toolbar: { show: false },
 		fontFamily: "Inter, sans-serif",
+		offsetX: 0,
+		offsetY: 0,
 	},
 	series: [
 		{
@@ -228,13 +236,7 @@ const options = {
 		width: 2,
 	},
 	fill: {
-		type: "gradient",
-		gradient: {
-			shadeIntensity: 1,
-			opacityFrom: 0.3,
-			opacityTo: 0.05,
-			stops: [0, 90, 100],
-		},
+		type: "solid",
 	},
 	colors: ["#c37404"],
 	markers: {
@@ -256,7 +258,7 @@ const options = {
 		},
 	},
 	tooltip: {
-		theme: "light",
+		theme: "dark",
 	},
 };
 
