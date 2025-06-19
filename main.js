@@ -193,6 +193,9 @@ const options = {
 		offsetX: 0,
 		offsetY: 0,
 	},
+	zoom: {
+		enabled: false,
+	},
 	series: [
 		{
 			name: "Weight Lifted (kg)",
