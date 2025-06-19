@@ -181,33 +181,88 @@ document.addEventListener("click", (e) => {
 const ctx = document.getElementById("myChart").getContext("2d");
 
 // 🟡 FAKE DATA
-const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const labels = [
+	"Mon",
+	"Tue",
+	"Wed",
+	"Thu",
+	"Fri",
+	"Sat",
+	"Sun",
+	"Mon",
+	"Tue",
+	"Wed",
+	"Thu",
+	"Fri",
+	"Sat",
+	"Sun",
+];
 const data = {
 	labels: labels,
 	datasets: [
 		{
 			label: "Weight Lifted (kg)",
-			data: [100, 105, 110, 108, 112, 115, 118],
-			borderColor: "rgba(75, 192, 192, 1)",
-			backgroundColor: "rgba(75, 192, 192, 0.2)",
-			tension: 0.4, // curve line
+			data: [100, 105, 110, 108, 112, 115, 118, 121, 120, 120, 125, 90],
+			borderColor: "rgb(195, 116, 4)",
+			backgroundColor: "rgba(159, 138, 52, 0.2)",
+			tension: 0.5,
 			fill: true,
-			pointRadius: 4,
-			pointHoverRadius: 6,
+			pointRadius: 3,
+			pointHoverRadius: 4,
 		},
 	],
 };
+
+// 🧠 Pull font info from CSS
+const bodyStyles = getComputedStyle(document.body);
+const bodyFontFamily = bodyStyles.fontFamily;
+const chartFontSize =
+	parseFloat(bodyStyles.getPropertyValue("--chart-font-size")) || 14;
 
 // 🟢 CONFIG
 const config = {
 	type: "line",
 	data: data,
 	options: {
+		layout: {
+			padding: 0,
+		},
 		responsive: true,
 		plugins: {
 			title: {
 				display: true,
 				text: "Bench Press - Weekly Progress",
+				color: "#fff",
+				font: {
+					family: bodyFontFamily,
+					size: chartFontSize + 2, // slightly larger than labels
+					weight: "bold",
+				},
+			},
+			legend: {
+				display: true,
+				labels: {
+					color: "#fff",
+					usePointStyle: true,
+					pointStyle: "line",
+					boxWidth: 40,
+					boxHeight: 2,
+					font: {
+						family: bodyFontFamily,
+						size: chartFontSize,
+					},
+				},
+			},
+			tooltip: {
+				enabled: true,
+				titleFont: {
+					family: bodyFontFamily,
+					size: chartFontSize,
+				},
+				bodyFont: {
+					family: bodyFontFamily,
+					size: chartFontSize,
+				},
 			},
 		},
 		interaction: {
@@ -217,16 +272,50 @@ const config = {
 		scales: {
 			x: {
 				title: {
-					display: true,
+					display: false,
 					text: "Day",
+					color: "#555",
+					font: {
+						family: bodyFontFamily,
+						size: chartFontSize,
+					},
+				},
+				grid: {
+					display: false,
+					color: "rgba(0,0,0,0.1)",
+				},
+				ticks: {
+					display: false,
+					color: "#555",
+					font: {
+						family: bodyFontFamily,
+						size: chartFontSize,
+					},
 				},
 			},
 			y: {
 				title: {
-					display: true,
+					display: false,
 					text: "Kilograms",
+					color: "#555",
+					font: {
+						family: bodyFontFamily,
+						size: chartFontSize,
+					},
 				},
-				suggestedMin: 90,
+				grid: {
+					display: false,
+					color: "rgba(0,0,0,0.1)",
+				},
+				ticks: {
+					display: false,
+					color: "#555",
+					font: {
+						family: bodyFontFamily,
+						size: chartFontSize,
+					},
+				},
+				suggestedMin: 50,
 				suggestedMax: 130,
 			},
 		},
