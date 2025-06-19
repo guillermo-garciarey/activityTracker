@@ -181,8 +181,8 @@ document.addEventListener("click", (e) => {
 const options = {
 	grid: {
 		padding: {
-			left: 0,
-			right: 0,
+			left: 10,
+			right: 20,
 		},
 	},
 	chart: {
@@ -225,6 +225,7 @@ const options = {
 		min: 50,
 		max: 130,
 		labels: {
+			show: false,
 			style: {
 				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
 				colors: "#666",
