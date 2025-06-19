@@ -176,77 +176,62 @@ document.addEventListener("click", (e) => {
 	}
 });
 
-// Popover
+// Chart
 
-// const menu = document.getElementById("popoverMenu");
+const ctx = document.getElementById("myChart").getContext("2d");
 
-// document.addEventListener("click", (e) => {
-// 	if (e.target.classList.contains("fa-ellipsis")) {
-// 		e.stopPropagation();
+// 🟡 FAKE DATA
+const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const data = {
+	labels: labels,
+	datasets: [
+		{
+			label: "Weight Lifted (kg)",
+			data: [100, 105, 110, 108, 112, 115, 118],
+			borderColor: "rgba(75, 192, 192, 1)",
+			backgroundColor: "rgba(75, 192, 192, 0.2)",
+			tension: 0.4, // curve line
+			fill: true,
+			pointRadius: 4,
+			pointHoverRadius: 6,
+		},
+	],
+};
 
-// 		const icon = e.target;
-// 		const scrollContainer = icon.closest(".container-full");
+// 🟢 CONFIG
+const config = {
+	type: "line",
+	data: data,
+	options: {
+		responsive: true,
+		plugins: {
+			title: {
+				display: true,
+				text: "Bench Press - Weekly Progress",
+			},
+		},
+		interaction: {
+			intersect: false,
+			mode: "index",
+		},
+		scales: {
+			x: {
+				title: {
+					display: true,
+					text: "Day",
+				},
+			},
+			y: {
+				title: {
+					display: true,
+					text: "Kilograms",
+				},
+				suggestedMin: 90,
+				suggestedMax: 130,
+			},
+		},
+	},
+};
 
-// 		const rect = icon.getBoundingClientRect();
-// 		const vw = window.innerWidth;
-// 		const vh = window.innerHeight;
-
-// 		const menuWidth = 160;
-// 		const menuHeight = 120;
-// 		const padding = 10;
-
-// 		const offsetX = 24;
-// 		const offsetY = 72;
-
-// 		let left = rect.right + window.scrollX - menuWidth - offsetX;
-// 		const isBottom = rect.top + rect.height / 2 > vh * 0.5;
-// 		let top;
-
-// 		if (isBottom) {
-// 			top = rect.top + window.scrollY - menuHeight - offsetY;
-// 		} else {
-// 			top = rect.bottom + window.scrollY + 8;
-// 		}
-
-// 		left = Math.max(
-// 			padding,
-// 			Math.min(left, vw - menuWidth - padding + window.scrollX)
-// 		);
-// 		top = Math.max(
-// 			padding,
-// 			Math.min(top, document.body.scrollHeight - menuHeight - padding)
-// 		);
-
-// 		menu.style.left = `${left}px`;
-// 		menu.style.top = `${top}px`;
-
-// 		menu.classList.remove("hidden");
-// 		void menu.offsetWidth;
-// 		menu.classList.add("show");
-
-// 		if (scrollContainer) {
-// 			scrollContainer.classList.add("no-scroll");
-
-// 			menu.dataset.lockedContainer = scrollContainer.dataset.containerId =
-// 				Math.random();
-// 		}
-// 	} else {
-// 		menu.classList.remove("show");
-
-// 		const lockedId = menu.dataset.lockedContainer;
-// 		if (lockedId) {
-// 			const previouslyLocked = document.querySelector(
-// 				`[data-container-id="${lockedId}"]`
-// 			);
-// 			if (previouslyLocked) {
-// 				previouslyLocked.classList.remove("no-scroll");
-// 				previouslyLocked.removeAttribute("data-container-id");
-// 			}
-// 			delete menu.dataset.lockedContainer;
-// 		}
-
-// 		setTimeout(() => {
-// 			menu.classList.add("hidden");
-// 		}, 200);
-// 	}
-// });
+// 🔵 CREATE CHART
+new Chart(ctx, config);

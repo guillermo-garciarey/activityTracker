@@ -27,6 +27,7 @@
 			src="https://kit.fontawesome.com/c7c54647d2.js"
 			crossorigin="anonymous"
 		></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</head>
 	<body>
 		<!-- Side Bar -->
@@ -68,15 +69,25 @@
 			id="Home"
 			class="panel active"
 		>
-			<div class="container">
-				<!-- Header -->
-				<div class="top-nav invisible">
-					<p>Home</p>
+			<div class="container-full">
+				<div class="container">
+					<!-- Header -->
+					<div class="top-nav invisible">
+						<p>Home</p>
+					</div>
+
+					<!-- Title -->
+
+					<h3 class="accent header">Home</h3>
 				</div>
-
-				<!-- Title -->
-
-				<h3 class="accent header">Home</h3>
+				<div class="graph-placeholder">
+					<canvas
+						id="myChart"
+						width="100%"
+						height="100%"
+					></canvas>
+				</div>
+				<div class="graph-placeholder"></div>
 			</div>
 		</section>
 
@@ -420,19 +431,6 @@
 				<p class="action">New Block</p>
 			</div>
 		</section>
-
-		<!-- Popover  -->
-
-		<div
-			id="popoverMenu"
-			class="popover hidden"
-		>
-			<ul>
-				<li><a href="#">Start</a><i class="fa-regular fa-paper-plane"></i></li>
-				<li><a href="#">Edit</a><i class="fa-solid fa-pen-to-square"></i></li>
-				<li><a href="#">Delete</a><i class="fa-solid fa-trash-can"></i></li>
-			</ul>
-		</div>
 
 		<!-- Bottom Nav Bar -->
 		<div class="bottom-nav-bar">
