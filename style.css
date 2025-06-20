@@ -783,17 +783,17 @@ a {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
-	padding-block: 1rem;
+	/* padding-block: 1rem; */
 	justify-content: space-around;
 	flex: 1;
 	width: 100%;
-	border-block: solid 1px var(--background);
+	border-top: solid 1px var(--background);
+	border-bottom: solid 1px var(--background);
 }
 
 select {
 	background: var(--popover);
 	color: var(--accent-foreground);
-	padding: 0.5rem;
 	border-radius: 4px;
 	border: solid 1px var(--popover);
 }
@@ -801,21 +801,27 @@ select {
 .chips {
 	display: flex;
 	gap: 0.5rem;
-	flex-wrap: wrap;
 	width: 100%;
 	justify-content: space-around;
 }
 
 .chip {
-	padding: 0.4rem 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding-block: 1rem;
 	border-radius: 4px;
 	cursor: pointer;
 	font-size: var(--step--1);
 	color: var(--muted-foreground);
 }
+.chips :nth-child(2) {
+	border-left: solid 1px var(--background);
+}
 
 .chip.active {
-	color: var(--destructive-foreground);
+	color: var(--chart-1);
 }
 
 .viz-panel {
