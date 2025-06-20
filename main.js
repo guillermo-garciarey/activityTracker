@@ -295,8 +295,11 @@ const chart = new ApexCharts(document.querySelector("#chart"), {
 	chart: {
 		type: "line",
 		height: 300,
-		fontFamily: "Inter, sans-serif",
+		// fontFamily: "Inter, sans-serif",
 		toolbar: { show: false },
+		zoom: {
+			enabled: false,
+		},
 	},
 	series: [],
 	xaxis: {

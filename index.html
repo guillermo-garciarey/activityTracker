@@ -83,21 +83,24 @@
 				<div class="graph-placeholder">
 					<section class="viz-panel">
 						<div class="controls">
-							<select id="activitySelect">
-								<option value="bench">Bench Press</option>
-								<option value="sprint">Sprint</option>
-							</select>
+							<div class="custom-select">
+								<select id="activitySelect">
+									<option value="bench">Bench Press</option>
+									<option value="sprint">Sprint</option>
+								</select>
+							</div>
 						</div>
+
+						<div
+							id="chart"
+							style="height: 300px"
+						></div>
 						<div class="controls">
 							<div
 								id="metricChips"
 								class="chips"
 							></div>
 						</div>
-						<div
-							id="chart"
-							style="height: 300px"
-						></div>
 					</section>
 					<div
 						id="chart"
