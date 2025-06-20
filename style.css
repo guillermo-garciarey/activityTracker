@@ -596,6 +596,7 @@ a {
 }
 
 .block-activity {
+	position: relative;
 	padding-inline: 1rem;
 	display: flex;
 	flex: 1;
@@ -605,6 +606,13 @@ a {
 }
 
 .block-activity small {
+	color: var(--destructive-foreground);
+}
+
+.block-activity i {
+	font-size: small;
+	position: absolute;
+	right: 15px;
 	color: var(--destructive-foreground);
 }
 
