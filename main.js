@@ -273,15 +273,14 @@ document.addEventListener("click", (e) => {
 
 // Fake data for activities & metrics
 const activityMetrics = {
-	bench: ["Weight", "Repetitionss"],
+	bench: ["Weight", "Repetitions"],
 	sprint: ["Distance", "Time"],
 };
 
 const metricData = {
 	bench: {
 		Weight: [100, 105, 110, 112, 115, 117, 118],
-		Reps: [8, 9, 9, 10, 9, 10, 10],
-		RIR: [3, 2, 2, 1, 1, 1, 1],
+		Repetitions: [8, 9, 9, 10, 9, 10, 10],
 	},
 	sprint: {
 		Distance: [50, 60, 60, 70, 80, 90, 90],
