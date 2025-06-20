@@ -81,6 +81,24 @@
 					<h3 class="accent header">Home</h3>
 				</div>
 				<div class="graph-placeholder">
+					<section class="viz-panel">
+						<div class="controls">
+							<select id="activitySelect">
+								<option value="bench">Bench Press</option>
+								<option value="sprint">Sprint</option>
+							</select>
+						</div>
+						<div class="controls">
+							<div
+								id="metricChips"
+								class="chips"
+							></div>
+						</div>
+						<div
+							id="chart"
+							style="height: 300px"
+						></div>
+					</section>
 					<div
 						id="chart"
 						style="width: 100%; height: 100%"

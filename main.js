@@ -178,60 +178,142 @@ document.addEventListener("click", (e) => {
 
 // Chart
 
-const options = {
-	grid: {
-		padding: {
-			left: 10,
-			right: 20,
-		},
+// const options = {
+// 	grid: {
+// 		padding: {
+// 			left: 10,
+// 			right: 20,
+// 		},
+// 	},
+// 	chart: {
+// 		type: "line",
+// 		height: 300,
+// 		toolbar: { show: false },
+// 		fontFamily: "Inter, sans-serif",
+// 		offsetX: 0,
+// 		offsetY: 0,
+// 	},
+// 	zoom: {
+// 		enabled: false,
+// 	},
+// 	series: [
+// 		{
+// 			name: "Weight Lifted (kg)",
+// 			data: [100, 105, 110, 108, 112, 115, 118, 121, 120, 120, 125, 90],
+// 		},
+// 	],
+// 	xaxis: {
+// 		categories: [
+// 			"Mon",
+// 			"Tue",
+// 			"Wed",
+// 			"Thu",
+// 			"Fri",
+// 			"Sat",
+// 			"Sun",
+// 			"Mon",
+// 			"Tue",
+// 			"Wed",
+// 			"Thu",
+// 			"Fri",
+// 		],
+// 		labels: {
+// 			style: {
+// 				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+// 				colors: "#666",
+// 			},
+// 		},
+// 	},
+// 	yaxis: {
+// 		min: 50,
+// 		max: 130,
+// 		labels: {
+// 			show: false,
+// 			style: {
+// 				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+// 				colors: "#666",
+// 			},
+// 		},
+// 	},
+// 	stroke: {
+// 		curve: "smooth",
+// 		width: 2,
+// 	},
+// 	fill: {
+// 		type: "solid",
+// 	},
+// 	colors: ["#c37404"],
+// 	markers: {
+// 		size: 4,
+// 	},
+// 	legend: {
+// 		show: true,
+// 		fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
+// 		fontFamily: "Inter, sans-serif",
+// 		labels: {
+// 			colors: "#444",
+// 		},
+// 		markers: {
+// 			width: 20,
+// 			height: 2,
+// 			strokeWidth: 0,
+// 			fillColors: ["#c37404"],
+// 			radius: 0,
+// 		},
+// 	},
+// 	tooltip: {
+// 		theme: "dark",
+// 	},
+// };
+
+// const chart = new ApexCharts(document.querySelector("#chart"), options);
+// chart.render();
+
+// Testing Chart
+
+// Fake data for activities & metrics
+const activityMetrics = {
+	bench: ["Weight", "Reps", "RIR"],
+	sprint: ["Distance", "Time"],
+};
+
+const metricData = {
+	bench: {
+		Weight: [100, 105, 110, 112, 115, 117, 118],
+		Reps: [8, 9, 9, 10, 9, 10, 10],
+		RIR: [3, 2, 2, 1, 1, 1, 1],
 	},
+	sprint: {
+		Distance: [50, 60, 60, 70, 80, 90, 90],
+		Time: [9.2, 8.9, 8.7, 8.5, 8.3, 8.4, 8.2],
+	},
+};
+
+const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+const chart = new ApexCharts(document.querySelector("#chart"), {
 	chart: {
 		type: "line",
 		height: 300,
-		toolbar: { show: false },
 		fontFamily: "Inter, sans-serif",
-		offsetX: 0,
-		offsetY: 0,
+		toolbar: { show: false },
 	},
-	zoom: {
-		enabled: false,
-	},
-	series: [
-		{
-			name: "Weight Lifted (kg)",
-			data: [100, 105, 110, 108, 112, 115, 118, 121, 120, 120, 125, 90],
-		},
-	],
+	series: [],
 	xaxis: {
-		categories: [
-			"Mon",
-			"Tue",
-			"Wed",
-			"Thu",
-			"Fri",
-			"Sat",
-			"Sun",
-			"Mon",
-			"Tue",
-			"Wed",
-			"Thu",
-			"Fri",
-		],
+		categories: labels,
 		labels: {
 			style: {
-				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-				colors: "#666",
+				fontSize: "14px",
+				colors: "#aaa",
 			},
 		},
 	},
 	yaxis: {
-		min: 50,
-		max: 130,
 		labels: {
 			show: false,
 			style: {
-				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-				colors: "#666",
+				fontSize: "14px",
+				colors: "#aaa",
 			},
 		},
 	},
@@ -239,32 +321,57 @@ const options = {
 		curve: "smooth",
 		width: 2,
 	},
+	markers: {
+		size: 3,
+	},
 	fill: {
 		type: "solid",
+		opacity: 1,
 	},
-	colors: ["#c37404"],
-	markers: {
-		size: 4,
-	},
-	legend: {
-		show: true,
-		fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-		fontFamily: "Inter, sans-serif",
-		labels: {
-			colors: "#444",
-		},
-		markers: {
-			width: 20,
-			height: 2,
-			strokeWidth: 0,
-			fillColors: ["#c37404"],
-			radius: 0,
-		},
-	},
-	tooltip: {
-		theme: "dark",
-	},
-};
+	// colors: ["#c37404"],
+	colors: ["hsl(18.2813 57.1429% 43.9216%)"],
+	legend: { show: true },
+	tooltip: { theme: "dark" },
+});
 
-const chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
+
+function renderChips(activity) {
+	const chipContainer = document.getElementById("metricChips");
+	chipContainer.innerHTML = "";
+
+	activityMetrics[activity].forEach((metric) => {
+		const chip = document.createElement("div");
+		chip.className = "chip";
+		chip.textContent = metric;
+		chip.onclick = () => {
+			document
+				.querySelectorAll(".chip")
+				.forEach((c) => c.classList.remove("active"));
+			chip.classList.add("active");
+			updateChart(activity, metric);
+		};
+		chipContainer.appendChild(chip);
+	});
+
+	// Auto-select the first metric
+	const first = chipContainer.querySelector(".chip");
+	if (first) first.click();
+}
+
+function updateChart(activity, metric) {
+	chart.updateSeries([
+		{
+			name: metric,
+			data: metricData[activity][metric],
+		},
+	]);
+}
+
+// On dropdown change
+document.getElementById("activitySelect").addEventListener("change", (e) => {
+	renderChips(e.target.value);
+});
+
+// Initial load
+renderChips("bench");
