@@ -371,6 +371,10 @@ a {
 	border-bottom: solid 1px var(--border);
 }
 
+.drawer small {
+	text-align: center;
+}
+
 .previous-workout {
 	display: flex;
 	flex-direction: column;
