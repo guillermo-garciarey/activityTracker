@@ -32,6 +32,18 @@ toggleItem.addEventListener("click", () => {
 
 // Toggle Drawer
 
+document.querySelector(".close-button").addEventListener("click", () => {
+	const drawer = document.querySelector(".drawer");
+	drawer.classList.remove("open-drawer");
+});
+
+document.querySelectorAll(".start-btn").forEach((btn) => {
+	btn.addEventListener("click", (e) => {
+		e.preventDefault(); // prevent default anchor behavior
+		document.querySelector(".drawer").classList.add("open-drawer");
+	});
+});
+
 // Toggle Side Bar
 const toggleSidebarBtn = document.getElementById("toggle-sidebar");
 const sidebar = document.querySelector(".sidebar");

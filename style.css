@@ -301,6 +301,27 @@ a {
 
 /* Drawer */
 
+.calendar-box {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	aspect-ratio: 1;
+	width: 58px;
+	border-radius: 4px;
+	border: solid 1px var(--border);
+}
+
+#month-label {
+	color: var(--primary-foreground);
+	background-color: var(--gradient-3b);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+#day-label {
+	color: var(--primary-foreground);
+}
+
 .drawer {
 	position: fixed;
 	bottom: 0;
@@ -316,7 +337,6 @@ a {
 	background-color: var(--background);
 	transition: transform 0.3s ease;
 	z-index: 1001;
-	overflow-y: auto;
 	padding-bottom: 4rem;
 }
 
@@ -329,9 +349,19 @@ a {
 	border-bottom: solid 1px var(--border);
 }
 
+.close-button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.25rem;
+	cursor: pointer;
+}
+
 .drawer-title p {
 	align-self: center;
 	justify-self: center;
+	font-size: var(--step-1);
+	color: var(--card-foreground);
 }
 
 .drawer-previous {
@@ -351,8 +381,9 @@ a {
 	gap: 1rem;
 }
 
-.previous-title {
+.previous-title p {
 	padding-left: 1rem;
+	color: var(--card-foreground);
 }
 
 .previous-metrics {
@@ -368,10 +399,15 @@ a {
 	padding: 1rem;
 }
 
+.previous-metric p {
+	padding-left: 0.5rem;
+}
+
 .drawer-current {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	overflow-y: auto;
 }
 
 .current-workout {
@@ -384,8 +420,9 @@ a {
 	gap: 1rem;
 }
 
-.current-set {
+.current-set p {
 	padding-left: 1rem;
+	color: var(--card-foreground);
 }
 
 .current-metrics {
@@ -401,12 +438,35 @@ a {
 	padding: 1rem;
 }
 
+.current-metric p {
+	padding-left: 0.5rem;
+}
+
 .drawer-action {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	padding-inline: 1rem;
 	gap: 1rem;
+}
+
+.drawer-action button {
+	cursor: pointer;
+	background-color: var(--background);
+	border-radius: 4px;
+	border: solid 1px var(--border);
+	color: var(--card-foreground);
+	padding-inline: 1rem;
+	padding-block: 0.5rem;
+}
+
+.primary {
+	background-color: var(--primary) !important;
+}
+
+.add-set {
+	border: dashed 1px var(--muted-foreground) !important;
+	color: var(--muted-foreground) !important;
 }
 
 .drawer.open-drawer {
@@ -416,7 +476,7 @@ a {
 }
 
 .drawer > input {
-	background-color: #2e3e45;
+	background-color: var(--background);
 }
 
 .drawer-previous input[type="number"] {
@@ -430,6 +490,8 @@ a {
 	background: var(--background);
 	color: var(--card-foreground);
 	text-align: center;
+	pointer-events: none; /* Prevent focus/click */
+	opacity: 0.7;
 }
 
 .drawer-current input[type="number"] {
@@ -954,7 +1016,6 @@ select {
 
 .chips {
 	display: flex;
-	gap: 0.5rem;
 	width: 100%;
 	justify-content: space-around;
 }
@@ -965,13 +1026,9 @@ select {
 	justify-content: center;
 	width: 100%;
 	padding-block: 1rem;
-	border-radius: 4px;
 	cursor: pointer;
 	font-size: var(--step--1);
 	color: var(--muted-foreground);
-}
-.chips :nth-child(2) {
-	border-left: solid 1px var(--background);
 }
 
 .chip.active {

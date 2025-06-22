@@ -32,19 +32,27 @@
 	<body>
 		<!-- Drawer-->
 
-		<div class="drawer open-drawer">
+		<div class="drawer">
 			<div class="drawer-title">
+				<i class="fa-solid fa-xmark close-button"></i>
 				<p>Bench Press</p>
 			</div>
 			<div class="drawer-previous">
 				<div class="previous-workout">
-					<div class="previous-title"><p>28th June</p></div>
+					<div class="previous-title">
+						<p>Last Session</p>
+						<!-- <div class="calendar-box">
+							<span id="month-label">Jul</span>
+							<span id="day-label">17</span>
+						</div> -->
+					</div>
 					<div class="previous-metrics">
 						<div class="previous-metric">
 							<p>Weight</p>
 							<input
 								type="number"
 								placeholder="80"
+								readonly
 							/>
 						</div>
 						<div class="previous-metric">
@@ -52,6 +60,15 @@
 							<input
 								type="number"
 								placeholder="10"
+								readonly
+							/>
+						</div>
+						<div class="previous-metric">
+							<p>Rest Time</p>
+							<input
+								type="number"
+								placeholder="2"
+								readonly
 							/>
 						</div>
 					</div>
@@ -83,11 +100,59 @@
 							/>
 						</div>
 					</div>
+					<div class="current-set"><p>Set 2</p></div>
+					<div class="current-metrics">
+						<div class="current-metric">
+							<p>Weight</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+						<div class="current-metric">
+							<p>Repetitions</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+						<div class="current-metric">
+							<p>Rest Time</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+					</div>
+					<div class="current-set"><p>Set 3</p></div>
+					<div class="current-metrics">
+						<div class="current-metric">
+							<p>Weight</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+						<div class="current-metric">
+							<p>Repetitions</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+						<div class="current-metric">
+							<p>Rest Time</p>
+							<input
+								type="number"
+								placeholder="-"
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="drawer-action">
-				<button>Add Set</button>
-				<button>Save</button>
+				<button class="add-set">Add Set</button>
+				<button class="primary">Save</button>
 			</div>
 		</div>
 
@@ -216,7 +281,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -244,7 +313,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -270,7 +343,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -297,7 +374,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -323,7 +404,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -350,7 +435,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
@@ -378,7 +467,11 @@
 							<div class="card-overlay">
 								<ul>
 									<li>
-										<a href="#">Start</a>
+										<a
+											href="#"
+											class="start-btn"
+											>Start</a
+										>
 									</li>
 									<li>
 										<a href="#">Edit</a>
