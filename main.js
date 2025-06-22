@@ -30,6 +30,8 @@ toggleItem.addEventListener("click", () => {
 	localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
+// Toggle Drawer
+
 // Toggle Side Bar
 const toggleSidebarBtn = document.getElementById("toggle-sidebar");
 const sidebar = document.querySelector(".sidebar");
@@ -177,99 +179,6 @@ document.addEventListener("click", (e) => {
 });
 
 // Chart
-
-// const options = {
-// 	grid: {
-// 		padding: {
-// 			left: 10,
-// 			right: 20,
-// 		},
-// 	},
-// 	chart: {
-// 		type: "line",
-// 		height: 300,
-// 		toolbar: { show: false },
-// 		fontFamily: "Inter, sans-serif",
-// 		offsetX: 0,
-// 		offsetY: 0,
-// 	},
-// 	zoom: {
-// 		enabled: false,
-// 	},
-// 	series: [
-// 		{
-// 			name: "Weight Lifted (kg)",
-// 			data: [100, 105, 110, 108, 112, 115, 118, 121, 120, 120, 125, 90],
-// 		},
-// 	],
-// 	xaxis: {
-// 		categories: [
-// 			"Mon",
-// 			"Tue",
-// 			"Wed",
-// 			"Thu",
-// 			"Fri",
-// 			"Sat",
-// 			"Sun",
-// 			"Mon",
-// 			"Tue",
-// 			"Wed",
-// 			"Thu",
-// 			"Fri",
-// 		],
-// 		labels: {
-// 			style: {
-// 				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-// 				colors: "#666",
-// 			},
-// 		},
-// 	},
-// 	yaxis: {
-// 		min: 50,
-// 		max: 130,
-// 		labels: {
-// 			show: false,
-// 			style: {
-// 				fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-// 				colors: "#666",
-// 			},
-// 		},
-// 	},
-// 	stroke: {
-// 		curve: "smooth",
-// 		width: 2,
-// 	},
-// 	fill: {
-// 		type: "solid",
-// 	},
-// 	colors: ["#c37404"],
-// 	markers: {
-// 		size: 4,
-// 	},
-// 	legend: {
-// 		show: true,
-// 		fontSize: "clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem)",
-// 		fontFamily: "Inter, sans-serif",
-// 		labels: {
-// 			colors: "#444",
-// 		},
-// 		markers: {
-// 			width: 20,
-// 			height: 2,
-// 			strokeWidth: 0,
-// 			fillColors: ["#c37404"],
-// 			radius: 0,
-// 		},
-// 	},
-// 	tooltip: {
-// 		theme: "dark",
-// 	},
-// };
-
-// const chart = new ApexCharts(document.querySelector("#chart"), options);
-// chart.render();
-
-// Testing Chart
 
 // Fake data for activities & metrics
 const activityMetrics = {

@@ -299,6 +299,152 @@ a {
 /* Custom Styling */
 /* --------------------------------------------------------------------------- */
 
+/* Drawer */
+
+.drawer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	height: calc(100vh);
+	width: 100vw;
+	transform: translateY(100%);
+	border-top: 1px solid var(--border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	background-color: var(--background);
+	transition: transform 0.3s ease;
+	z-index: 1001;
+	overflow-y: auto;
+	padding-bottom: 4rem;
+}
+
+.drawer > * {
+	padding-block: 1rem;
+}
+
+.drawer-title {
+	width: 100%;
+	border-bottom: solid 1px var(--border);
+}
+
+.drawer-title p {
+	align-self: center;
+	justify-self: center;
+}
+
+.drawer-previous {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	border-bottom: solid 1px var(--border);
+}
+
+.previous-workout {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: start;
+	flex-wrap: wrap;
+	padding-block: 1rem;
+	gap: 1rem;
+}
+
+.previous-title {
+	padding-left: 1rem;
+}
+
+.previous-metrics {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.previous-metric {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.drawer-current {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.current-workout {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: start;
+	flex-wrap: wrap;
+	padding-block: 1rem;
+	gap: 1rem;
+}
+
+.current-set {
+	padding-left: 1rem;
+}
+
+.current-metrics {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.current-metric {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+}
+
+.drawer-action {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding-inline: 1rem;
+	gap: 1rem;
+}
+
+.drawer.open-drawer {
+	transform: translateY(0);
+	width: 100%;
+	max-width: 72rem;
+}
+
+.drawer > input {
+	background-color: #2e3e45;
+}
+
+.drawer-previous input[type="number"] {
+	margin-top: 0.5rem;
+	width: 100%;
+	padding-inline: 1rem;
+	padding-block: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background: var(--background);
+	color: var(--card-foreground);
+	text-align: center;
+}
+
+.drawer-current input[type="number"] {
+	margin-top: 0.5rem;
+	width: 100%;
+	padding-inline: 1rem;
+	padding-block: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background: var(--background);
+	color: var(--card-foreground);
+	text-align: center;
+}
+
 /* Sidebar */
 
 .sidebar {
@@ -829,7 +975,8 @@ select {
 }
 
 .chip.active {
-	color: var(--chart-1);
+	color: var(--destructive-foreground);
+	background-color: var(--primary);
 }
 
 .viz-panel {
